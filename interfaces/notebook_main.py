@@ -17,10 +17,10 @@ def create_interface(screen):
                            command=print("Config"))
     config.grid(row=1, column=2, pady=10)
 
-    notebook = ctk.CTkTabview(screen, width=365, height=400,
+    notebook = ctk.CTkTabview(screen, width=375, height=400,
                               corner_radius=20, border_width=2,
                               fg_color="#c4c2c2", segmented_button_fg_color="grey")
-    notebook.grid(row=2, column=1, columnspan=2, pady=5)
+    notebook.grid(row=2, column=1, columnspan=2, pady=5, padx=2)
 
     open_pet_table(notebook)
     open_daily_table(notebook)

@@ -1,0 +1,18 @@
+      Pet's Food - Graciliano
+=====================================
+                Dados
+
+    Nome: {client}
+    Número: {number}
+    Endereço: {adress}
+=====================================
+                Pedido
+
+{items}
+
+=====================================
+   Valor: R$ {value}  Status: {payment}
+=====================================
+   OBSERVAÇÕES:
+
+    {obs}

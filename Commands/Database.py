@@ -1,4 +1,5 @@
 import sqlite3
+from datetime import datetime
 
 banco = sqlite3.connect("database/Clients_pet.Db")
 Cursor = banco.cursor()
@@ -20,3 +21,26 @@ def data_insert(Data):
                     '{Data["position"]}', '{Data["client"]}', '{Data["number"]}',
                     '{Data["pet"]}', '{Data["process"]}') """)
     banco.commit()
+
+
+def filter_date(date, treeview):
+    for item in treeview.get_children():
+        treeview.delete(item)
+
+    date_obj = datetime.strptime(date, "%d/%m/%Y")
+    formated_date = date_obj.strftime("%d/%m/%Y")
+
+    for data in Cursor.execute(BD_COMMAND, (formated_date,)):
+        treeview.delete()
+        real_data = [data[1], data[2], data[3], data[4], data[5], ]
+        treeview.insert(parent="", index=0, values=real_data)
+
+
+def today_data(treeview):
+
+    today_date = datetime.now().strftime("%d/%m/%Y")
+
+    for data in Cursor.execute(BD_COMMAND, (today_date,)):
+        treeview.delete()
+        real_data = [data[1], data[2], data[3], data[4], data[5], ]
+        treeview.insert(parent="", index=0, values=real_data)
