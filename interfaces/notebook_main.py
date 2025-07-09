@@ -1,5 +1,8 @@
 import customtkinter as ctk
 from PIL import Image
+from .pets_paper import open_pet_table
+from .daily_pets import open_daily_table
+from .delivery_paper import open_delivery_table
 
 
 def create_interface(screen):
@@ -17,5 +20,10 @@ def create_interface(screen):
     notebook = ctk.CTkTabview(screen, width=365, height=400,
                               corner_radius=20, border_width=2,
                               fg_color="#c4c2c2", segmented_button_fg_color="grey")
+    notebook.grid(row=2, column=1, columnspan=2, pady=5)
 
-    notebook.grid(row=2, column=1, columnspan=2)
+    open_pet_table(notebook)
+    open_daily_table(notebook)
+    open_delivery_table(notebook)
+
+
