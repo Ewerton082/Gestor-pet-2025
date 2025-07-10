@@ -16,10 +16,10 @@ banco.execute('''CREATE TABLE IF NOT EXISTS Clientes_PET(
               )
 
 
-def data_insert(Data):
-    Cursor.execute(f"""INSERT INTO Clientes_PET VALUES('{Data["date"]}',
-                    '{Data["position"]}', '{Data["client"]}', '{Data["number"]}',
-                    '{Data["pet"]}', '{Data["process"]}') """)
+def data_insert(data):
+    Cursor.execute(f"""INSERT INTO Clientes_PET VALUES('{data["date"]}',
+                    '{data["position"]}', '{data["client"]}', '{data["number"]}',
+                    '{data["pet"]}', '{data["process"]}') """)
     banco.commit()
 
 

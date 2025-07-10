@@ -3,6 +3,7 @@ from PIL import Image
 from .pets_paper import open_pet_table
 from .daily_pets import open_daily_table
 from .delivery_paper import open_delivery_table
+from .config_interface import open_screen
 
 
 def create_interface(screen):
@@ -14,7 +15,7 @@ def create_interface(screen):
     config_image = ctk.CTkImage(Image.open("assets/configs.ico"), size=(35,35))
     config = ctk.CTkButton(screen, image=config_image, width=30, height=35,
                            text="", fg_color="transparent", hover_color="#d9d9d9",
-                           command=lambda: print("Config"))
+                           command=lambda: open_screen(screen))
     config.grid(row=1, column=2, pady=10)
 
     notebook = ctk.CTkTabview(screen, width=375, height=400,
