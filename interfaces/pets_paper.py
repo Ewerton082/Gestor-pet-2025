@@ -1,5 +1,5 @@
 import customtkinter as ctk
-from Commands.Pet_paper_printed import print_pet_paper
+from Commands.paper_printed import print_pet_paper
 from datetime import datetime
 from Commands.constants import FONT_BASE
 

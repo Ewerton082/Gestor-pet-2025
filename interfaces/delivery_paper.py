@@ -1,5 +1,6 @@
 import customtkinter as ctk
 from Commands.constants import FONT_BASE
+from Commands.paper_printed import print_delivery_paper
 
 
 def open_delivery_table(notebook):
@@ -60,6 +61,15 @@ def open_delivery_table(notebook):
 
     submitdelivery_buttom = ctk.CTkButton(notebook.tab("Entregas"), width=290, corner_radius=10, border_width=2,
                                           font=(FONT_BASE, 21, "bold"),
-                                          text="Realizar Entrega", command=print("hello"))
+                                          text="Realizar Entrega", command=lambda: print_delivery_paper(
+            {
+                "client": clientdelivery_entry.get(),
+                "number": numberdelivery_entry.get(),
+                "adress": adress_entry.get(),
+                "items": items_entry.get(),
+                "value": value_entry.get(),
+                "payment": pag_var.get(),
+                "obs": obsdelivery_entry.get()
+            }))
     submitdelivery_buttom.grid(row=10, column=0, columnspan=2, pady=14)
 
