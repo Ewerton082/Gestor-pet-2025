@@ -59,9 +59,11 @@ def open_delivery_table(notebook):
                                      font=(FONT_BASE, 11, "bold"))
     obsdelivery_entry.grid(row=9, column=0, columnspan=2)
 
+
+
     submitdelivery_buttom = ctk.CTkButton(notebook.tab("Entregas"), width=290, corner_radius=10, border_width=2,
                                           font=(FONT_BASE, 21, "bold"),
-                                          text="Realizar Entrega", command=lambda: print_delivery_paper(
+                                          text="Realizar Entrega", command=lambda: (print_delivery_paper(
             {
                 "client": clientdelivery_entry.get(),
                 "number": numberdelivery_entry.get(),
@@ -69,7 +71,16 @@ def open_delivery_table(notebook):
                 "items": items_entry.get(),
                 "value": value_entry.get(),
                 "payment": pag_var.get(),
-                "obs": obsdelivery_entry.get()
-            }))
+                "obs": obsdelivery_entry.get()}),
+
+            clientdelivery_entry.delete(0, 100),
+            clientdelivery_entry.focus(),
+            numberdelivery_entry.delete(0, 50),
+            adress_entry.delete(0, 50),
+            items_entry.delete(0, 400),
+            value_entry.delete(0,50),
+            obsdelivery_entry.delete(0,400)
+            ))
+
     submitdelivery_buttom.grid(row=10, column=0, columnspan=2, pady=14)
 

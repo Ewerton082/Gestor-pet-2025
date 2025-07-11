@@ -2,3 +2,6 @@ venv
 Client_pet.Db
 comandas
 config.json
+dist
+build
+main.spec

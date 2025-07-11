@@ -1,6 +1,7 @@
 import os
 from win32api import ShellExecute
 from win32print import SetDefaultPrinter
+from pyperclip import copy
 
 from .Database import data_insert
 from config.settings import get_settings
@@ -60,7 +61,9 @@ def print_delivery_paper(data: dict):
     with open("printed_files/template_entrega.txt", "r", encoding="utf-8") as file:
         template = file.read()
 
+    data["items"] = data["items"].replace("|", "\n")
     formated_text = template.format(**data)
+    copy(formated_text)
     try:
         os.makedirs("comandas")
     except:

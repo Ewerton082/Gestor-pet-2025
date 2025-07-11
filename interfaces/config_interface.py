@@ -2,7 +2,9 @@ import tkinter as tk
 from tkinter import filedialog
 import customtkinter as ctk
 from Commands.constants import PRINTERS, FONT_BASE
-from config.settings import set_settings
+from config.settings import set_settings, get_settings
+
+SETTINGS = get_settings()
 
 
 def select_dir(label, screen):
@@ -25,12 +27,19 @@ def open_screen(master):
     printers_choice = ctk.CTkComboBox(config_screen, width=200, fg_color="white", border_color="black",
                                       border_width=2, corner_radius=8, values=PRINTERS, font=(FONT_BASE, 12),
                                       button_color="#44acf5", button_hover_color="#318bc6", justify="center",
-                                      dropdown_hover_color="#7bc2f2", dropdown_font=(FONT_BASE, 12))
+                                      dropdown_hover_color="#7bc2f2", dropdown_font=(FONT_BASE, 12),)
     printers_choice.grid(row=0, column=1, pady=7, padx=7)
+
+    if SETTINGS["impressora"]:
+        printers_choice.set(SETTINGS["impressora"])
 
     print_dir_label = ctk.CTkLabel(config_screen, width=200, font=(FONT_BASE, 10), bg_color="#afb8ba",
                                    corner_radius=20, text="")
     print_dir_label.grid(row=1, column=1, pady=7, padx=7)
+
+
+    if SETTINGS["path_dir"]:
+        print_dir_label.configure(text=SETTINGS["path_dir"])
 
     print_dir_buttom = ctk.CTkButton(config_screen, width=140, corner_radius=10, border_width=1, font=(FONT_BASE, 16),
                                      text="Selecionar Diretorio",
