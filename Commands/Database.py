@@ -1,5 +1,11 @@
+import os
 import sqlite3
 from datetime import datetime
+
+try:
+    os.makedirs("database")
+except:
+    pass
 
 banco = sqlite3.connect("database/Clients_pet.Db")
 Cursor = banco.cursor()

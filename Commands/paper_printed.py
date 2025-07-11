@@ -1,9 +1,21 @@
 import os
+from win32api import ShellExecute
+from win32print import SetDefaultPrinter
+
 from .Database import data_insert
+from config.settings import get_settings
+
+CONFIG = get_settings()
 
 
-def real_print(qtd):
-    print("Imprimir aqui")
+def real_print(qtd: int):
+    dir_path = CONFIG.get("path_dir")
+
+    if CONFIG.get("impressora"):
+        SetDefaultPrinter(CONFIG["impressora"])
+    for paper in range(0, qtd):
+        ShellExecute(0, "print", "text_writed.txt", None, dir_path, 0)
+
 
 def print_pet_paper(data: dict):
     """
@@ -31,7 +43,6 @@ def print_pet_paper(data: dict):
         archive.write(formated_text)
         archive.close()
         real_print(1)
-
 
 
 def print_delivery_paper(data: dict):
