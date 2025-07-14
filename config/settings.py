@@ -1,6 +1,6 @@
 import json
 import os
-from Commands.constants import CONFIG_FILE
+from Commands.constants import CONFIG_FILE, DEFAULT_CONFIG
 
 
 def get_settings():
@@ -11,6 +11,9 @@ def get_settings():
                 return real_data
         except:
             pass
+    else:
+        with open(CONFIG_FILE, "w", encoding="utf-8") as f:
+            json.dump(DEFAULT_CONFIG, f, indent=4, ensure_ascii=False)
 
 
 def set_settings(printer, path_dir):

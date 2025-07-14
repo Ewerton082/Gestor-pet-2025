@@ -16,3 +16,8 @@ PROCEDIMENT_LIST = [
     'Tosa Completa 7', 'Tosa Completa 10', 'Tosa Bebê']
 
 CONFIG_FILE = "config.json"
+
+DEFAULT_CONFIG = {
+    "impressora": "default",
+    "path_dir": "./comandas"
+}
