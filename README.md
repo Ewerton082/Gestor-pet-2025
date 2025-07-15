@@ -39,3 +39,10 @@ Crie uma pasta na sua maquina no local desejado e apenas copie tudo que tiver de
 
 ### Imagens
 
+![Tela Pets](GitHub_IMG/TelaPet.png)
+
+![Tela Entregas](GitHub_IMG/TelaEntregas.png)
+
+![Banco de dados](GitHub_IMG/BancoDeDados.png)
+
+![Tela Config](GitHub_IMG/TelaConfig.png)
